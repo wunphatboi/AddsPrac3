@@ -7,9 +7,19 @@ int Reverser::reverseDigit(int value){
     }else if(value<10){
         return value;
     }
-    int len=0;
+    int length=0;
     for (int i=value; i; i/=10){
-        len++;
+        length++;
     }
-    return value%10*(int)pow(10, len-1) + reverseDigit(value/10);
+    return value%10*(int)pow(10, length-1) + reverseDigit(value/10);
+};
+
+string Reverser::reverseString(string characters){
+    if (characters.length() < 0){
+        return "ERROR";
+    }else if (characters.length() == 0){
+        return characters;
+    }else{
+    return characters.substr(characters.length()-1,-1) + reverseString(characters.substr(0,characters.length()-1));
+    }
 };
